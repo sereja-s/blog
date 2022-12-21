@@ -83,7 +83,7 @@ $topTopic = selectTopTopicFromPostsOnIndex('posts');
 			<div class="content row">
 				<!-- Main Content -->
 				<div class="main-content col-md-9 col-12">
-					<h2>Последние публикации</h2>
+					<h2>Новинки</h2>
 					<?php foreach ($posts as $post) : ?>
 						<div class="post row">
 							<div class="img col-12 col-md-4">

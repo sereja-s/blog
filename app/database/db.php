@@ -3,6 +3,9 @@
 //session_start();
 require 'connect.php';
 
+/** 
+ * функция для тестового вывода значения на экран
+ */
 function tt($value)
 {
 	echo '<pre>';
@@ -16,7 +19,9 @@ function tte($value)
 	print_r($value);
 	echo '</pre>';
 }
-// Проверка выполнения запроса к БД
+/** 
+ * Функция для проверки на ошибки выполнения запроса к БД
+ */
 function dbCheckError($query)
 {
 	$errInfo = $query->errorInfo();
@@ -27,10 +32,16 @@ function dbCheckError($query)
 	return true;
 }
 
-// Запрос на получение данных с одной таблицы
+//--------------------------------------------------------------------------------------------------------------------//
+
+/**
+ * функция создаёт запрос на получение данных из одной таблицы: $table
+ */
 function selectAll($table, $params = [])
 {
+	// обращаемся к глобальной переменной (экземпляру класса)
 	global $pdo;
+	// составляем запрос
 	$sql = "SELECT * FROM $table";
 
 	if (!empty($params)) {
@@ -47,15 +58,20 @@ function selectAll($table, $params = [])
 			$i++;
 		}
 	}
-
+	// подготовка запроса
 	$query = $pdo->prepare($sql);
+	// выполнение запроса
 	$query->execute();
+	// проверка на ошибки
 	dbCheckError($query);
+	// возвращаем результат запроса
 	return $query->fetchAll();
 }
 
 
-// Запрос на получение одной строки с выбранной таблицы
+/**
+ * функция создаёт запрос на получение одной строки из выбранной таблицы: $table
+ */
 function selectOne($table, $params = [])
 {
 	global $pdo;
@@ -79,16 +95,20 @@ function selectOne($table, $params = [])
 	$query = $pdo->prepare($sql);
 	$query->execute();
 	dbCheckError($query);
-	return $query->fetch();
+	return $query->fetch(); // выводится одна строка
 }
 
-// Запись в таблицу БД
+//---------------------------------------------------------------------------------------------------------------------//
+
+/** 
+ * функция для вставки строки (записи) в таблицу
+ */
 function insert($table, $params)
 {
 	global $pdo;
 	$i = 0;
-	$coll = '';
-	$mask = '';
+	$coll = ''; // в переменной будем формировать ключи для запроса
+	$mask = ''; // в переменной укажем соответствующие им значения
 	foreach ($params as $key => $value) {
 		if ($i === 0) {
 			$coll = $coll . "$key";
@@ -108,7 +128,11 @@ function insert($table, $params)
 	return $pdo->lastInsertId();
 }
 
-// Обновление строки в таблице
+//-------------------------------------------------------------------------------------------------------------------//
+
+/** 
+ * функция для обновления данных в таблице
+ */
 function update($table, $id, $params)
 {
 	global $pdo;
@@ -129,16 +153,23 @@ function update($table, $id, $params)
 	dbCheckError($query);
 }
 
-// Обновление строки в таблице
+//--------------------------------------------------------------------------------------------------------------------//
+
+/** 
+ * функция для удаления строки (записи) в таблице
+ */
 function delete($table, $id)
 {
 	global $pdo;
-	//DELETE FROM `topics` WHERE id = 3
+
 	$sql = "DELETE FROM $table WHERE id =" . $id;
 	$query = $pdo->prepare($sql);
 	$query->execute();
 	dbCheckError($query);
 }
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 // Выборка записей (posts) с автором в админку
 function selectAllFromPostsWithUsers($table1, $table2)
 {

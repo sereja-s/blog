@@ -25,7 +25,7 @@ input{
     border: 1px solid #ececec;
     line-height: 1.5rem;
     color: #444444;
-    font-size: 1rem;
+    font-size: .89rem;
 }
 /*
     HEADER
@@ -69,9 +69,8 @@ header ul li a{
 		font-size: 1rem;
 	}
 }
-@media(max-width: 400px){
-	header ul li a {
-		font-size: .9rem;
+@media(max-width: 425px){
+	header ul li a {		
 		padding: 15px;
 	}
 }
@@ -180,6 +179,12 @@ header ul li ul li a {
 .search{
     margin-top: 96px;
 }
+@media(max-width: 767px){
+	.search {
+		margin-top: 5px;
+	}
+}
+
 .sidebar .section{
     background: #ffffff;
     padding: 20px;
@@ -280,7 +285,7 @@ header ul li ul li a {
 
 .footer .footer-bottom {
     background: #343a40;
-    color: #686868;
+    color: #999292;
     height: 50px;
     width: 100%;
     text-align: center;
