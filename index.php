@@ -58,7 +58,7 @@ $topTopic = selectTopTopicFromPostsOnIndex('posts');
 						<?php else : ?>
 							<div class="carousel-item">
 							<?php endif; ?>
-							<img src="<?= BASE_URL . 'assets/images/posts/' . $post['img'] ?>" alt="<?= $post['title'] ?>" class="d-block w-100">
+							<a href="<?= BASE_URL . 'single.php?post=' . $post['id']; ?>"><img src="<?= BASE_URL . 'assets/images/posts/' . $post['img'] ?>" alt="<?= $post['title'] ?>" class="d-block w-100"></a>
 							<div class="carousel-caption-hack carousel-caption d-none d-md-block">
 								<h5><a href="<?= BASE_URL . 'single.php?post=' . $post['id']; ?>"><?= substr($post['title'], 0, 120) . '...'  ?></a></h5>
 							</div>
@@ -87,7 +87,7 @@ $topTopic = selectTopTopicFromPostsOnIndex('posts');
 					<?php foreach ($posts as $post) : ?>
 						<div class="post row">
 							<div class="img col-12 col-md-4">
-								<img src="<?= BASE_URL . 'assets/images/posts/' . $post['img'] ?>" alt="<?= $post['title'] ?>" class="img-thumbnail">
+								<a href="<?= BASE_URL . 'single.php?post=' . $post['id']; ?>"><img src="<?= BASE_URL . 'assets/images/posts/' . $post['img'] ?>" alt="<?= $post['title'] ?>" class="img-thumbnail"></a>
 							</div>
 							<div class="post_text col-12 col-md-8">
 								<h3>
@@ -104,6 +104,7 @@ $topTopic = selectTopTopicFromPostsOnIndex('posts');
 					<?php endforeach; ?>
 					<?php include("app/include/pagination.php"); ?>
 				</div>
+
 				<!-- sidebar Content -->
 				<div class="sidebar col-md-3 col-12">
 

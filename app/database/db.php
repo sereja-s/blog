@@ -1,6 +1,6 @@
 <?php
 
-//session_start();
+session_start();
 require 'connect.php';
 
 /** 
@@ -35,7 +35,7 @@ function dbCheckError($query)
 //--------------------------------------------------------------------------------------------------------------------//
 
 /**
- * функция создаёт запрос на получение данных из одной таблицы: $table
+ * функция создаёт запрос (и возвращает результат) на получение данных из одной таблицы: $table
  */
 function selectAll($table, $params = [])
 {
@@ -70,7 +70,7 @@ function selectAll($table, $params = [])
 
 
 /**
- * функция создаёт запрос на получение одной строки из выбранной таблицы: $table
+ * функция создаёт запрос (и возвращает результат) на получение одной строки из выбранной таблицы: $table
  */
 function selectOne($table, $params = [])
 {
@@ -125,7 +125,7 @@ function insert($table, $params)
 	$query = $pdo->prepare($sql);
 	$query->execute($params);
 	dbCheckError($query);
-	return $pdo->lastInsertId();
+	return $pdo->lastInsertId(); // - метод php (вернёт Id)
 }
 
 //-------------------------------------------------------------------------------------------------------------------//

@@ -17,24 +17,28 @@
 
 					<li>
 						<?php if (isset($_SESSION['id'])) : ?>
+
 							<a href="#">
 								<i class="fa fa-user"></i>
 								<?php echo $_SESSION['login']; ?>
 							</a>
 							<ul>
 								<?php if ($_SESSION['admin']) : ?>
-									<li><a href="#">Админ панель</a> </li>
+									<li><a href="<?php echo BASE_URL . "admin/" . "posts/" . "index.php"; ?>">Админ панель</a> </li>
 								<?php endif; ?>
 								<li><a href="<?php echo BASE_URL . "logout.php"; ?>">Выход</a> </li>
 							</ul>
+
 						<?php else : ?>
-							<a href="<?php echo BASE_URL . "log.php"; ?>">
+							<a href="#">
 								<i class="fa fa-user"></i>
 								Войти
 							</a>
 							<ul>
 								<li><a href="<?php echo BASE_URL . "reg.php"; ?>">Регистрация</a> </li>
+								<li><a href="<?php echo BASE_URL . "log.php"; ?>">Авторизация</a> </li>
 							</ul>
+
 						<?php endif; ?>
 
 					</li>
