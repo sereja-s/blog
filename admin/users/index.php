@@ -33,9 +33,9 @@ include "../../app/controllers/users.php"
 
 		<div class="posts col-md-9 col-12">
 			<div class="button row gx-1 gy-2">
-				<a href="<?php echo BASE_URL . "admin/users/create.php"; ?>" class="col-md-4 col-12 btn btn-success">Создать</a>
+				<a href="<?php echo BASE_URL . "admin/users/create.php"; ?>" class="col-md-4 col-12 btn btn-success">Добавить пользователя</a>
 				<span class="col-1"></span>
-				<a href="<?php echo BASE_URL . "admin/users/index.php"; ?>" class="col-md-4 col-12 btn btn-warning">Редактировать</a>
+				<!-- <a href="<?php echo BASE_URL . "admin/users/index.php"; ?>" class="col-md-4 col-12 btn btn-warning">Редактировать</a> -->
 			</div>
 			<div class="row title-table">
 				<h2>Пользователи</h2>

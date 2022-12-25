@@ -32,10 +32,11 @@ include "../../app/controllers/topics.php";
 
 		<div class="posts col-md-9 col-12">
 			<div class="button row gx-1 gy-2">
-				<a href="<?php echo BASE_URL . "admin/topics/create.php"; ?>" class="col-md-4 col-12 btn btn-success">Создать</a>
+				<a href="<?php echo BASE_URL . "admin/topics/create.php"; ?>" class="col-md-4 col-12 btn btn-success">Создать категорию</a>
 				<span class="col-1"></span>
-				<a href="<?php echo BASE_URL . "admin/topics/index.php"; ?>" class="col-md-4 col-12 btn btn-warning">Редактировать</a>
+				<!-- <a href="<?php echo BASE_URL . "admin/topics/index.php"; ?>" class="col-md-4 col-12 btn btn-warning">Редактировать</a> -->
 			</div>
+
 			<div class="row title-table">
 				<h2>Управление категориями</h2>
 				<div class="col-1">ID</div>
@@ -46,8 +47,8 @@ include "../../app/controllers/topics.php";
 				<div class="row post">
 					<div class="id col-1"><?= $key + 1; ?></div>
 					<div class="title col-5"><?= $topic['name']; ?></div>
-					<div class="red col-2"><a href="edit.php?id=<?= $topic['id']; ?>">edit</a></div>
-					<div class="del col-2"><a href="index.php?del_id=<?= $topic['id']; ?>">delete</a></div>
+					<div class="red col-2"><a href="edit.php?id=<?= $topic['id']; ?>">ред.</a></div>
+					<div class="del col-2"><a href="index.php?del_id=<?= $topic['id']; ?>">уд.</a></div>
 				</div>
 			<?php endforeach; ?>
 		</div>

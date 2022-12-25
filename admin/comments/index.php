@@ -45,11 +45,13 @@ include "../../app/controllers/commentaries.php";
 				<div class="row post">
 					<div class="id col-1"><?= $comment['id']; ?></div>
 					<div class="title col-4"><?= mb_substr($comment['comment'], 0, 25, 'UTF-8') . '...'  ?></div>
+
 					<?php
 					$user = $comment['email'];
 					$user = explode('@', $user);
 					$user = $user[0];
 					?>
+
 					<div class="author col-3"><?= $user ?></div>
 					<div class="red col-2"><a href="edit.php?id=<?= $comment['id']; ?>">ред.</a></div>
 					<div class="del col-1"><a href="edit.php?delete_id=<?= $comment['id']; ?>">уд.</a></div>
