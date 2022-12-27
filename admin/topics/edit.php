@@ -44,7 +44,9 @@ include "../../app/controllers/topics.php";
 					<p><?= $errMsg ?></p>
 				</div>
 				<form action="edit.php" method="post">
+					<!-- скрытое поле -->
 					<input name="id" value="<?= $id; ?>" type="hidden">
+
 					<div class="col">
 						<input name="name" value="<?= $name; ?>" type="text" class="form-control" placeholder="Имя категории" aria-label="Имя категории">
 					</div>

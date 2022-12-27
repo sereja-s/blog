@@ -9,8 +9,6 @@ $total_pages = round(countRow('posts') / $limit, 0);
 
 $posts = selectAllFromPostsWithUsersOnIndex('posts', 'users', $limit, $offset);
 $topTopic = selectTopTopicFromPostsOnIndex('posts');
-
-
 ?>
 <!doctype html>
 <html lang="en">

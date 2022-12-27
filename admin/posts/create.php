@@ -33,9 +33,9 @@ include "../../app/controllers/posts.php";
 
 		<div class="posts col-md-9 col-12">
 			<div class="button row gx-1 gy-2">
-				<a href="<?php echo BASE_URL . "admin/posts/create.php"; ?>" class="col-md-4 col-12 btn btn-success">Создать</a>
+				<!-- <a href="<?php echo BASE_URL . "admin/posts/create.php"; ?>" class="col-md-4 col-12 btn btn-success">Создать</a> -->
 				<span class="col-1"></span>
-				<a href="<?php echo BASE_URL . "admin/posts/index.php"; ?>" class="col-md-4 col-12 btn btn-warning">Редактировать</a>
+				<a href="<?php echo BASE_URL . "admin/posts/index.php"; ?>" class="col-md-4 col-12 btn btn-warning">Управление записями</a>
 			</div>
 			<div class="row title-table">
 				<h2>Добавление записи</h2>
@@ -57,8 +57,9 @@ include "../../app/controllers/posts.php";
 						<input name="img" type="file" class="form-control" id="inputGroupFile02">
 						<label class="input-group-text" for="inputGroupFile02">Upload</label>
 					</div>
+					<!-- выпадающщий список категорий в форме создания записи -->
 					<select name="topic" class="form-select mb-2" aria-label="Default select example">
-						<option selected>Категория поста:</option>
+						<option selected>Категория записи:</option>
 						<?php foreach ($topics as $key => $topic) : ?>
 							<option value="<?= $topic['id']; ?>"><?= $topic['name']; ?></option>
 						<?php endforeach; ?>
@@ -69,7 +70,7 @@ include "../../app/controllers/posts.php";
 							опубликовать
 						</label>
 					</div>
-					<div class="col col-6">
+					<div class="col">
 						<button name="add_post" class="btn btn-primary" type="submit">Добавить запись</button>
 					</div>
 				</form>

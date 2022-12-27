@@ -34,15 +34,17 @@ include "../../app/controllers/topics.php";
 			<div class="button row gx-1 gy-2">
 				<!-- <a href="<?php echo BASE_URL . "admin/topics/create.php"; ?>" class="col-md-4 col-12 btn btn-success">Создать</a> -->
 				<span class="col-1"></span>
-				<a href="<?php echo BASE_URL . "admin/topics/index.php"; ?>" class="col-md-4 col-12 btn btn-warning">Управление категориями</a>
+				<a href="<?php echo BASE_URL . "admin/topics/index.php"; ?>" class="col-md-5 col-12 btn btn-warning">Управление категориями</a>
 			</div>
 			<div class="row title-table">
 				<h2>Создать категорию</h2>
 			</div>
 			<div class="row add-post">
+
 				<div class="mb-12 col-12 col-md-12 err">
 					<p><?= $errMsg ?></p>
 				</div>
+
 				<form action="create.php" method="post">
 					<div class="col">
 						<input name="name" value="<?= $name; ?>" type="text" class="form-control" placeholder="Имя категории" aria-label="Имя категории">

@@ -6,27 +6,36 @@ $id = '';
 $name = '';
 $description = '';
 
+// получим в переменую данные (массив) из таблицы для вывода их на соответствующей странице
 $topics = selectAll('topics');
 
 
 // Код для формы создания категории
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-create'])) {
+
 	$name = trim($_POST['name']);
 	$description = trim($_POST['description']);
 
 	if ($name === '' || $description === '') {
+
 		$errMsg = "Не все поля заполнены!";
 	} elseif (mb_strlen($name, 'UTF8') < 2) {
+
 		$errMsg = "Категория должна быть более 2-х символов";
 	} else {
+
 		$existence = selectOne('topics', ['name' => $name]);
+
 		if ($existence['name'] === $name) {
+
 			$errMsg = "Такая категория уже есть в базе";
 		} else {
+
 			$topic = [
 				'name' => $name,
 				'description' => $description
 			];
+
 			$id = insert('topics', $topic);
 			$topic = selectOne('topics', ['id' => $id]);
 			header('location: ' . BASE_URL . 'admin/topics/index.php');
@@ -38,8 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-create'])) {
 }
 
 
-// Апдейт категории
+// Редактирование категории (update)
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
+
 	$id = $_GET['id'];
 	$topic = selectOne('topics', ['id' => $id]);
 	$id = $topic['id'];
