@@ -170,7 +170,10 @@ function delete($table, $id)
 
 //--------------------------------------------------------------------------------------------------------------------//
 
-// Выборка записей (posts) с автором в админку
+
+/** 
+ * Выборка записей (posts) с автором в админку
+ */
 function selectAllFromPostsWithUsers($table1, $table2)
 {
 	global $pdo;
@@ -190,7 +193,10 @@ function selectAllFromPostsWithUsers($table1, $table2)
 	return $query->fetchAll();
 }
 
-// Выборка записей (posts) с автором на главную
+
+/** 
+ * Выборка записей (posts) с автором на главную
+ */
 function selectAllFromPostsWithUsersOnIndex($table1, $table2, $limit, $offset)
 {
 	global $pdo;
@@ -201,7 +207,10 @@ function selectAllFromPostsWithUsersOnIndex($table1, $table2, $limit, $offset)
 	return $query->fetchAll();
 }
 
-// Выборка записей (posts) с автором на главную
+
+/** 
+ * Выборка записей (posts) из топ_категории в слайдшоу карусели на главной
+ */
 function selectTopTopicFromPostsOnIndex($table1)
 {
 	global $pdo;
@@ -213,7 +222,10 @@ function selectTopTopicFromPostsOnIndex($table1)
 }
 
 
-// Поиск по заголовкам и содержимому (простой)
+
+/** 
+ * Поиск по заголовкам и содержимому (простой)
+ */
 function seacrhInTitileAndContent($text, $table1, $table2)
 {
 	$text = trim(strip_tags(stripcslashes(htmlspecialchars($text))));
@@ -231,7 +243,10 @@ function seacrhInTitileAndContent($text, $table1, $table2)
 	return $query->fetchAll();
 }
 
-// Выборка записи (posts) с автором для синг
+
+/** 
+ * Выборка записи (posts) с автором для сингл
+ */
 function selectPostFromPostsWithUsersOnSingle($table1, $table2, $id)
 {
 	global $pdo;
@@ -242,7 +257,10 @@ function selectPostFromPostsWithUsersOnSingle($table1, $table2, $id)
 	return $query->fetch();
 }
 
-// Считаем количество строк в таблице
+
+/** 
+ * Считаем количество строк в таблице
+ */
 function countRow($table)
 {
 	global $pdo;

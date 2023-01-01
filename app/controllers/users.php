@@ -135,6 +135,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create-user'])) {
 	$email = '';
 }
 
+
+
 // Код удаления пользователя в админке
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['delete_id'])) {
 	$id = $_GET['delete_id'];

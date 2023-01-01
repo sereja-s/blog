@@ -45,6 +45,7 @@ include "../../app/controllers/users.php";
 					<?php include "../../app/helps/errorInfo.php"; ?>
 				</div>
 				<form action="edit.php" method="post">
+					<!-- скрытое поле подтягивает $id в $_POST -->
 					<input name="id" value="<?= $id; ?>" type="hidden">
 					<div class="col">
 						<label for="formGroupExampleInput" style="margin: 10px 0;" class="form-label">Логин</label>

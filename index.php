@@ -100,6 +100,7 @@ $topTopic = selectTopTopicFromPostsOnIndex('posts');
 							</div>
 						</div>
 					<?php endforeach; ?>
+
 					<?php include("app/include/pagination.php"); ?>
 				</div>
 

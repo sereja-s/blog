@@ -1,6 +1,7 @@
 <?php
 
 include SITE_ROOT . "/app/database/db.php";
+
 if (!$_SESSION) {
 	header('location: ' . BASE_URL . 'log.php');
 }
@@ -19,12 +20,12 @@ $postsAdm = selectAllFromPostsWithUsers('posts', 'users');
 // Код для формы создания записи
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_post'])) {
 
+	// погрузка картинок на сервер
 	if (!empty($_FILES['img']['name'])) {
 		$imgName = time() . "_" . $_FILES['img']['name'];
 		$fileTmpName = $_FILES['img']['tmp_name'];
 		$fileType = $_FILES['img']['type'];
 		$destination = ROOT_PATH . "\assets\images\posts\\" . $imgName;
-
 
 		if (strpos($fileType, 'image') === false) {
 			array_push($errMsg, "Подгружаемый файл не является изображением!");
@@ -49,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_post'])) {
 
 	if ($title === '' || $content === '' || $topic === '') {
 		array_push($errMsg, "Не все поля заполнены!");
-	} elseif (mb_strlen($title, 'UTF8') < 7) {
-		array_push($errMsg, "Название статьи должно быть более 7-ми символов");
+	} elseif (mb_strlen($title, 'UTF8') < 3) {
+		array_push($errMsg, "Название статьи должно быть более 3-х символов");
 	} else {
 		// формируем массив данных для записи в поля соответствующей таблицы В БД
 		$post = [
@@ -76,16 +77,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_post'])) {
 }
 
 
-// АПДЕЙТ СТАТЬИ
+// АПДЕЙТ(редактирование) СТАТЬИ
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
+	// вытянем статью по id
 	$post = selectOne('posts', ['id' => $_GET['id']]);
 
+	// разложим по полям данные, которые мы получили
 	$id =  $post['id'];
 	$title =  $post['title'];
 	$content = $post['content'];
 	$topic = $post['id_topic'];
 	$publish = $post['status'];
 }
+
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_post'])) {
 	$id =  $_POST['id'];
@@ -119,8 +124,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_post'])) {
 
 	if ($title === '' || $content === '' || $topic === '') {
 		array_push($errMsg, "Не все поля заполнены!");
-	} elseif (mb_strlen($title, 'UTF8') < 7) {
-		array_push($errMsg, "Название статьи должно быть более 7-ми символов");
+	} elseif (mb_strlen($title, 'UTF8') < 3) {
+		array_push($errMsg, "Название статьи должно быть более 3-х символов");
 	} else {
 		$post = [
 			'id_user' => $_SESSION['id'],
@@ -141,6 +146,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_post'])) {
 	$topic = $_POST['id_topic'];
 }
 
+
+
 // Статус опубликовать или снять с публикации
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['pub_id'])) {
 	$id = $_GET['pub_id'];
@@ -151,6 +158,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['pub_id'])) {
 	header('location: ' . BASE_URL . 'admin/posts/index.php');
 	exit();
 }
+
+
 
 // Удаление статьи
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['delete_id'])) {

@@ -365,7 +365,7 @@ COMMENTS
     padding-top: 3rem;
 }
 .all-comments h3{
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 .all-comments .one-comment{
     padding: 1rem;
@@ -379,6 +379,10 @@ COMMENTS
 }
 .all-comments .one-comment span{
     display: inline-flex;
-    margin: 0.5rem 1.5rem 1.5rem 0;
+    margin: 0.1rem 1.5rem 0.5rem 0;
     font-weight: 500;
+	 font-size: 12px;
+}
+.err {
+	color: coral;
 }

@@ -38,6 +38,9 @@ include "app/controllers/users.php";
 					<?php endforeach; ?>
 				<?php endif; ?>
 
+				<!-- Вывод массива с ошибками -->
+				<?php include "app/helps/errorInfo.php"; ?>
+
 			</div>
 			<div class="w-100"></div>
 			<div class="mb-3 col-12 col-md-4">

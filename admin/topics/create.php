@@ -42,7 +42,8 @@ include "../../app/controllers/topics.php";
 			<div class="row add-post">
 
 				<div class="mb-12 col-12 col-md-12 err">
-					<p><?= $errMsg ?></p>
+					<!-- Вывод массива с ошибками -->
+					<?php include "../../app/helps/errorInfo.php"; ?>
 				</div>
 
 				<form action="create.php" method="post">

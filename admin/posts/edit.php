@@ -46,6 +46,7 @@ include "../../app/controllers/posts.php";
 					<?php include "../../app/helps/errorInfo.php"; ?>
 				</div>
 				<form action="edit.php" method="post" enctype="multipart/form-data">
+					<!-- создадим скрытое поле в котором передаём при редактировании переменную: $id (из posts.php)  -->
 					<input type="hidden" name="id" value="<?= $id; ?>">
 					<div class="col mb-4">
 						<input value="<?= $post['title']; ?>" name="title" type="text" class="form-control" placeholder="Title" aria-label="Название статьи">

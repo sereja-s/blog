@@ -41,7 +41,7 @@ include "../../app/controllers/posts.php";
 				<div class="mb-12 col-12 col-md-12 err">
 					<p><?= $_SESSION['error']; ?></p>
 				</div>
-				<div class="col-1">ID</div>
+				<div class="col-1">№</div>
 				<div class="col-4">Название</div>
 				<div class="col-2">Автор</div>
 				<div class="col-5" style="text-align: center;">Управление</div>
@@ -54,9 +54,9 @@ include "../../app/controllers/posts.php";
 					<div class="red col-2"><a href="edit.php?id=<?= $post['id']; ?>">ред.</a></div>
 					<div class="del col-2"><a href="edit.php?delete_id=<?= $post['id']; ?>">уд.</a></div>
 					<?php if ($post['status']) : ?>
-						<div class="status col-1" style="font-size: 18px;"><a href="edit.php?publish=0&pub_id=<?= $post['id']; ?>">_</a></div>
+						<div class="status col-1" style="font-size: 12px;"><a href="edit.php?publish=0&pub_id=<?= $post['id']; ?>">нет</a></div>
 					<?php else : ?>
-						<div class="status col-1" style="font-size: 18px;"><a href="edit.php?publish=1&pub_id=<?= $post['id']; ?>">+</a></div>
+						<div class="status col-1" style="font-size: 12px;"><a href="edit.php?publish=1&pub_id=<?= $post['id']; ?>">да</a></div>
 					<?php endif; ?>
 				</div>
 			<?php endforeach; ?>

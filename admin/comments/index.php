@@ -41,24 +41,25 @@ include "../../app/controllers/commentaries.php";
 				<div class="col-3">Автор</div>
 				<div class="col-4">Управление</div>
 			</div>
+
 			<?php foreach ($commentsForAdm as $key => $comment) : ?>
 				<div class="row post">
 					<div class="id col-1"><?= $comment['id']; ?></div>
-					<div class="title col-4"><?= mb_substr($comment['comment'], 0, 25, 'UTF-8') . '...'  ?></div>
+					<div class="title col-4"><?= mb_substr($comment['comment'], 0, 15, 'UTF-8') . '...'  ?></div>
 
 					<?php
 					$user = $comment['email'];
 					$user = explode('@', $user);
-					$user = $user[0];
+					$user = mb_substr($user[0], 0, 7, 'UTF-8') . '...';
 					?>
 
 					<div class="author col-3"><?= $user ?></div>
 					<div class="red col-2"><a href="edit.php?id=<?= $comment['id']; ?>">ред.</a></div>
 					<div class="del col-1"><a href="edit.php?delete_id=<?= $comment['id']; ?>">уд.</a></div>
 					<?php if ($comment['status']) : ?>
-						<div class="status col-1" style="font-size: 18px;"><a href=" edit.php?publish=0&pub_id=<?= $comment['id']; ?>">_</a></div>
+						<div class="status col-1" style="font-size: 12px;"><a href=" edit.php?publish=0&pub_id=<?= $comment['id']; ?>">нет</a></div>
 					<?php else : ?>
-						<div class="status col-1" style="font-size: 18px;"><a href=" edit.php?publish=1&pub_id=<?= $comment['id']; ?>">+</a></div>
+						<div class="status col-1" style="font-size: 12px;"><a href=" edit.php?publish=1&pub_id=<?= $comment['id']; ?>">да</a></div>
 					<?php endif; ?>
 				</div>
 			<?php endforeach; ?>

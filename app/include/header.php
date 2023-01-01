@@ -5,7 +5,8 @@
 			<div class="col-4">
 
 				<h1>
-					<a href="<?php echo BASE_URL ?>">My blog</a>
+					<!-- <a href="<?php echo BASE_URL ?>">Блог</a> -->
+					<a href="<?= BASE_URL ?>"><img src="<?= BASE_URL . 'assets/images/Логотип сайта.jpg' ?>" alt="блог" class="img-thumbnail" style="width: 100px; padding: 1px"></a>
 				</h1>
 			</div>
 
